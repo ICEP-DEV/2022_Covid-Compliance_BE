@@ -1,0 +1,20 @@
+{
+  "name": "2022_covid-compliance_be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICEP-DEV/2022_Covid-Compliance_BE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICEP-DEV/2022_Covid-Compliance_BE/issues"
+  },
+  "homepage": "https://github.com/ICEP-DEV/2022_Covid-Compliance_BE#readme"
+}
