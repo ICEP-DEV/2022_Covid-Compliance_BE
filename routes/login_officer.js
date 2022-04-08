@@ -38,7 +38,7 @@ database.query(qr,(err,result)=>{
  if(result.length>0)  
    {
     res.send({
-        message:'user found',
+        message:'Successful',
         data:result,
         User_id:User_id
         
@@ -47,7 +47,7 @@ database.query(qr,(err,result)=>{
    else 
    {
         res.send({
-         message:'no user'
+         message:'Unsuccessful'
     })
   }
 
