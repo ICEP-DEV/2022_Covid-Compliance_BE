@@ -32,24 +32,87 @@ router.post('/user',(req,res)=>{
     let password=req.body.password;
     let firstNames=req.body.firstNames;
 
-//sending the variables to the database
-
-
-
-let qr=`insert into user(User_id,Camp_id,First_name,Last_name,Gender,Type,Cellphone_number,Email,Password) values('${userId}','${campId}','${firstNames}','${lastName}','${gender}','${type}','${cellphone}','${ email}','${password}')`;
-
+//check if email have registered before
+let qr = `select Email from user where Email = '${email}'`;
 database.query(qr,(err,result)=>{
 
-    if(err){console.log(err);}
-   console.log(result,'result')
+    
 
+    if(err){console.log(err);}
+    
+    if(result.length>0)
+       {
         res.send({
-            message:'data inserted'
+            message:'Unsuccessful',
+            data:result
+           
+            
+        });
+       }
+       else 
+       {
+            res.send({
+             message:'Successful'
         });
 
-        res.send({message:'data not inserted'});
 
+         //start registering
+
+         let qr=`insert into user(User_id,Camp_id,First_name,Last_name,Gender,Type,Cellphone_number,Email,Password) values('${userId}','${campId}','${firstNames}','${lastName}','${gender}','${type}','${cellphone}','${ email}','${password}')`;
+
+         database.query(qr,(err,result)=>{
+
+  
+            if(err){console.log(err);
+                console.log(result,'result')
+                res.send({message:'Unsuccessful'});
+
+
+            
+
+              }else{
+          
+                  res.send({
+                      message:'Successful'
+                    
+                      
+
+                  });
+
+                
+              }
+            
+              const render = res.render;
+              const send = res.send;
+              res.render = function renderWrapper(...args) {
+                  Error.captureStackTrace(this);
+                  return render.apply(this, args);
+          
+              };
+          
+              res.send = function sendWrapper(...args) {
+                  try {
+                      send.apply(this, args);
+                  } catch (err) {
+                      console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+                  }
+              };
+              //next();
+
+
+           
+                 /* res.send({
+                      message:'data inserted'
+                  });
+          
+                  res.send({message:'data not inserted'});*/
+          
+          
+          });
+
+      }
 });
+
 
 const render = res.render;
     const send = res.send;
@@ -66,6 +129,34 @@ const render = res.render;
             console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
         }
     };
-    //next();
+   // next();
+  // email
+
+  var nodemailer = require('nodemailer');
+
+  var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: 'thatothato1818@gmail.com',
+      pass: '13Moleya.r'
+  }
+  });
+
+  var mailOptions = {
+  from: 'thatothato1818@gmail.com',
+  to:JSON.stringify(email),
+  subject:'covid complaince  ' ,
+  text:firstNames+' '+lastName+' WELCOME TO COVID COMPLAINCE '
+
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+ 
 
 });

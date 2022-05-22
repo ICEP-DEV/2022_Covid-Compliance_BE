@@ -72,7 +72,7 @@ const render = res.render;
             console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
         }
     };
-    //next();
+    next();
 
 });
 

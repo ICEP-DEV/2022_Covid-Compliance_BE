@@ -19,7 +19,7 @@ router.get('/user/:User_id',(req,res)=>{
     if(result.length>0)
        {
         res.send({
-            message:'get single data',
+            message:'Successful',
             data:result
             
         });
@@ -27,7 +27,7 @@ router.get('/user/:User_id',(req,res)=>{
        else 
        {
             res.send({
-             message:'data not found'
+             message:'Unsuccessful'
         })
       }
     

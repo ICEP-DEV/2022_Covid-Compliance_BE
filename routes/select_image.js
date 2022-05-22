@@ -7,10 +7,10 @@ const database=require('./database');
 
 // get single data
 
-router.get('/image/:image_id',(req,res)=>{
+/*router.get('/image/:image_id',(req,res)=>{
     let gID = req.params.image_id;
     
-    let qr = `select * from image where image_id = '${gID}'`;
+    let qr = `select pic_path from image where image_id = '${gID}'`;
     
     database.query(qr,(err,result)=>{
     
@@ -18,11 +18,11 @@ router.get('/image/:image_id',(req,res)=>{
     
     if(result.length>0)
        {
-        res.send({
-            message:'get single data',
-            data:result
-            
-        });
+        res.json({
+          success:1,
+          pic_path:result
+
+      })
        }
        else 
        {
@@ -33,4 +33,10 @@ router.get('/image/:image_id',(req,res)=>{
     
     });
        
+})*/
+
+router.get('/view/:pic_id',(req,res)=>{
+  let gID = req.params.pic_id;
+  res.download('./public/images/'+gID);
 })
+
