@@ -6,7 +6,7 @@ const cors = require('cors');
 const app=express();
 
 
-const db=mysql.createConnection({host:'localhost',user:'root',password:'',database:'covid_compliance',port:'3306'})
+const db=mysql.createConnection({host:'sql3.freemysqlhosting.net',user:'sql3494346',password:'1DRh8DcXdC',database:'sql3494346',port:'3306'})
 
 //check the database  connection
 
