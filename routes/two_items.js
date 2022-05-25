@@ -6,6 +6,7 @@ module.exports = router;
 const database=require('./database');
 
 // get single data
+//committed
 
 router.get('/record/:User_id',(req,res)=>{
     let gID = req.params.User_id;
