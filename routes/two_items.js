@@ -9,8 +9,10 @@ const database=require('./database');
 
 router.get('/record/:User_id',(req,res)=>{
     let gID = req.params.User_id;
+    let date = new Date();
     
-    let qr = `select Form_check, Tempareture, Date from record where User_id = '${gID}'`;
+    let qr = `select Form_check from record where Form_check='Yes' and  Date ='${date.toDateString()}' and  User_id = '${gID }' `;
+    
     
     database.query(qr,(err,result)=>{
     
@@ -19,16 +21,26 @@ router.get('/record/:User_id',(req,res)=>{
         res.send({message:'Unsuccessful'});
         } 
         else{
+            if(result.length>0)
+            {
             res.send({
                 message:'Successful',
                 data:result
             });
-    
+          }
+          else{
+
+            res.send({
+                message:'Unsuccessful',
+                data:result
+            });
+          }
         }
+
             
     }); 
        
       
-    
+ 
 
   });
