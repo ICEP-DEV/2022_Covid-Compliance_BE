@@ -17,10 +17,17 @@ router.put('/user/:User_id',(req,res)=>{
     let qr = `update user set Cellphone_number='${Cellphone_number}',Email='${Email}',Password='${Password}' WHERE User_id='${User_id}'`;
 
     database.query(qr,(err,result)=>{
-        if(err){console.log(err);}
-
-        res.send({
-            message:'data updated'
+        if(err){console.log(err);  
+            
+            res.send({
+            message:'Successful'
         });
+    }
+   else{
+
+    res.send({
+        message:'Unsuccessful'
+    });
+   }
     });
    })

@@ -10,7 +10,7 @@ const database=require('./database');
 router.get('/record/:User_id',(req,res)=>{
     let gID = req.params.User_id;
     
-    let qr = `select Form_check from record where User_id = '${gID}'`;
+    let qr = `select from record where  Form_check='Yes' and Date='${date.toDateString()}' `;
     
     database.query(qr,(err,result)=>{
     

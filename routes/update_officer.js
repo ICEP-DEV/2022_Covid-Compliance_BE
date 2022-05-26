@@ -17,11 +17,21 @@ router.put('/officer/:Officer_id',(req,res)=>{
 
 
     database.query(qr,(err,result)=>{
-        if(err){console.log(err);}
-
-        res.send({
-            message:'date updated'
+        if(err){console.log(err);  
+            
+            res.send({
+            message:'Successful'
         });
+    }
+   else{
+
+    res.send({
+        message:'Unsuccessful'
+    });
+
+
+   }
+   
     });
    })
  
