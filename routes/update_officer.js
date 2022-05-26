@@ -20,13 +20,13 @@ router.put('/officer/:Officer_id',(req,res)=>{
         if(err){console.log(err);  
             
             res.send({
-            message:'Successful'
+            message:'Unsuccessful'
         });
     }
    else{
 
     res.send({
-        message:'Unsuccessful'
+        message:'Successful'
     });
 
 

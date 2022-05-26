@@ -20,13 +20,13 @@ router.put('/user/:User_id',(req,res)=>{
         if(err){console.log(err);  
             
             res.send({
-            message:'Successful'
+            message:'Usuccessful'
         });
     }
    else{
 
     res.send({
-        message:'Unsuccessful'
+        message:'Successful'
     });
    }
     });
