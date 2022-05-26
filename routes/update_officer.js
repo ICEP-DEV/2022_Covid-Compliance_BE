@@ -8,7 +8,7 @@ const database=require('./database');
 router.put('/officer/:Officer_id',(req,res)=>{ 
     console.log(req.body,'updatedata');
 
-    let Officer_id=req.body.Officer_id;
+    let Officer_id=req.params.Officer_id;
     let Cellphone_number=req.body.Cellphone_number;
     let Email=req.body.Email;
     let Password=req.body.Password;
