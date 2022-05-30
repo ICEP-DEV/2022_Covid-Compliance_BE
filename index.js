@@ -63,6 +63,7 @@ const select_pp_officer=require('./routes/select_pp_officer');
 const delete_news=require('./routes/delete_news');
 const two_items=require('./routes/two_items');
 const insert_vaccination_card=require('./routes/insert_vaccination_card');
+const select_vaccination=require('./routes/select_vaccination');
 //instantiating 
 app.use(cors());
 app.use(bodyparser.json());
@@ -136,6 +137,7 @@ app.use('/select_pp_officer',select_pp_officer);
 app.use('/delete_news',delete_news);
 app.use('/two_items',two_items);
 app.use('/insert_vaccination_card',insert_vaccination_card);
+app.use('/select_vaccination',select_vaccination);
 
 
 
