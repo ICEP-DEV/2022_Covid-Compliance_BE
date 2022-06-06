@@ -64,6 +64,7 @@ const delete_news=require('./routes/delete_news');
 const two_items=require('./routes/two_items');
 const insert_vaccination_card=require('./routes/insert_vaccination_card');
 const select_vaccination=require('./routes/select_vaccination');
+const select_visitor=require('./routes/select_visitor');
 //instantiating 
 app.use(cors());
 app.use(bodyparser.json());
@@ -138,6 +139,7 @@ app.use('/delete_news',delete_news);
 app.use('/two_items',two_items);
 app.use('/insert_vaccination_card',insert_vaccination_card);
 app.use('/select_vaccination',select_vaccination);
+app.use('/select_visitor',select_visitor);
 
 
 
