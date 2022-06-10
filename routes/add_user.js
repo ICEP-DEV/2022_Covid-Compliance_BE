@@ -135,15 +135,15 @@ const render = res.render;
   var nodemailer = require('nodemailer');
 
   var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'outlook',
   auth: {
-      user: 'thatothato1818@gmail.com',
+      user: 'banze.aj@outlook.com',
       pass: '13Moleya.r'
   }
   });
 
   var mailOptions = {
-  from: 'thatothato1818@gmail.com',
+  from: 'banze.aj@outlook.com',
   to:JSON.stringify(email),
   subject:'covid complaince  ' ,
   text:firstNames+' '+lastName+' WELCOME TO COVID COMPLAINCE '

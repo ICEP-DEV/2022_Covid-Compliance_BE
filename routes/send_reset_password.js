@@ -30,15 +30,15 @@ database.query(sql,(err,result)=>{
 
 
     var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-          user: 'thatothato1818@gmail.com',
-          pass: '13Moleya.r'
+      service: 'outlook',
+    auth: {
+        user: 'banze.aj@outlook.com',
+        pass: '13Moleya.r'
       }
       });
     
       var mailOptions = {
-      from:'thatothato1818@gmail.com',
+      from:'banze.aj@outlook.com',
       to:JSON.stringify(email),
       subject:'covid compliance password reset  ' ,
       text:'click the following link to reset your password  '
